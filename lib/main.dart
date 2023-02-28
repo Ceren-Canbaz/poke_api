@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
                 },
               );
               return DetailPage(
-                name: 'bulbasaur',
+                name: state.params["name"]!,
               );
             },
           ),
