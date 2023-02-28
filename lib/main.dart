@@ -21,11 +21,6 @@ class MyApp extends StatelessWidget {
             name: "details",
             path: "details/:name",
             builder: (context, state) {
-              state.queryParams.forEach(
-                (key, value) {
-                  print("$key:$value");
-                },
-              );
               return DetailPage(
                 name: state.params["name"]!,
               );
