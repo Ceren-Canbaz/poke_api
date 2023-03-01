@@ -27,19 +27,4 @@ class PokemonRepository {
       element.url = idArr[idArr.length - 2];
     });
   }
-
-  Future<PhotoModel> fetchPhoto(http.Client client,
-      {required String name}) async {
-    final response =
-        await client.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/$name'));
-    return compute(parsePhoto, response.body);
-  }
-
-  PhotoModel parsePhoto(String responseBody) {
-    final parsed =
-        jsonDecode(responseBody)['sprites']['other']['official-artwork'];
-    // return parsed.map<Photo>((json) => Photo.fromJson(json));
-
-    return PhotoModel.fromJson(parsed);
-  }
 }
