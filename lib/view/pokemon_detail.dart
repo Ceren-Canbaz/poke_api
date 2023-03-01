@@ -8,8 +8,10 @@ class DetailPage extends StatelessWidget {
   const DetailPage({
     super.key,
     required this.name,
+    required this.id,
   });
   final String name;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,8 @@ class DetailPage extends StatelessWidget {
       body: Center(
           child: Column(
         children: [
-          Text(name),
+          Image.network(
+              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png'),
           ElevatedButton(
             onPressed: () => context.go("/"),
             child: const Text("Go to home page"),

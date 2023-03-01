@@ -100,8 +100,10 @@ class blocBody extends StatelessWidget {
                     Image.network(
                         'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonList[index].url}.png'),
                     ElevatedButton(
-                        onPressed: () => context.goNamed("details",
-                            params: {'name': pokemonList[index].name}),
+                        onPressed: () => context.goNamed("details", params: {
+                              'name': pokemonList[index].name,
+                              'id': pokemonList[index].url
+                            }),
                         child: const Text('Go to details page')),
                   ],
                 ),
@@ -120,42 +122,3 @@ class blocBody extends StatelessWidget {
     });
   }
 }
-// Widget blocBody() {
-//   return Builder(builder: (context) {
-//     return BlocProvider(
-//       create: (context) =>
-//           PokemonBloc(PokemonRepository())..add(LoadPokemonEvent()),
-//       child: BlocBuilder(builder: (context, state) {
-//         if (state is PokemonLoadingState) {
-//           return const Center(
-//             child: CircularProgressIndicator(),
-//           );
-//         } else if (state is PokemonloadedState) {
-//           List<PokemonModel> pokemonList = state.pokemons;
-//           return ListView.builder(
-//             itemCount: pokemonList.length,
-//             itemBuilder: (_, index) {
-//               return Padding(
-//                 padding:
-//                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-//                 child: Card(
-//                   color: Colors.amber,
-//                   child: ListTile(
-//                     title: Text(pokemonList[index].name),
-//                   ),
-//                 ),
-//               );
-//             },
-//           );
-//         }
-//         if (state is PokemonErrorState) {
-//           return const Center(
-//             child: Text("Error"),
-//           );
-//         }
-
-//         return Container();
-//       }),
-//     );
-//   });
-// }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:poke_api/old/pokemon_home_view.dart';
 import 'package:poke_api/view/pokemon_detail.dart';
 import 'package:poke_api/view/pokemon_page.dart';
 
@@ -19,10 +18,11 @@ class MyApp extends StatelessWidget {
         routes: [
           GoRoute(
             name: "details",
-            path: "details/:name",
+            path: "details/:name&:id",
             builder: (context, state) {
               return DetailPage(
                 name: state.params["name"]!,
+                id: state.params["id"]!,
               );
             },
           ),
