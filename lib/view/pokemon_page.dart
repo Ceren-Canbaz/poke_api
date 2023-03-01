@@ -67,7 +67,7 @@ class blocBody extends StatelessWidget {
           child: CircularProgressIndicator(),
         );
       } else if (state is PokemonloadedState) {
-        List<PokemonModel> pokemonList = state.searchText.isEmpty
+        List<Pokemon> pokemonList = state.searchText.isEmpty
             ? state.pokemons
             : state.pokemons
                 .where((element) =>
@@ -86,7 +86,8 @@ class blocBody extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: CircleAvatar(
-                        child: Image.network(pokemonList[index].url),
+                        child: Image.network(
+                            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonList[index].url}.png'),
                       ),
                       title: Text(
                         pokemonList[index].name.toUpperCase(),
@@ -96,7 +97,8 @@ class blocBody extends StatelessWidget {
                             fontSize: 24),
                       ),
                     ),
-                    Image.network(pokemonList[index].url),
+                    Image.network(
+                        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonList[index].url}.png'),
                     ElevatedButton(
                         onPressed: () => context.goNamed("details",
                             params: {'name': pokemonList[index].name}),

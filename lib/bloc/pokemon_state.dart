@@ -13,11 +13,10 @@ class PokemonLoadingState extends PokemonState {
 }
 
 class PokemonloadedState extends PokemonState {
-  final List<PokemonModel> pokemons;
+  final List<Pokemon> pokemons;
   final String searchText;
   PokemonloadedState(this.pokemons, this.searchText);
-  PokemonloadedState copyWith(
-      {List<PokemonModel>? pokemons, String? searchText}) {
+  PokemonloadedState copyWith({List<Pokemon>? pokemons, String? searchText}) {
     return PokemonloadedState(
         pokemons ?? this.pokemons, searchText ?? this.searchText);
   }

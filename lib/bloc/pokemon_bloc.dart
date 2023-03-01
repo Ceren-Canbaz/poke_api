@@ -12,11 +12,11 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
       try {
         final pokemons = await _pokemonRepository.getPokemons();
 
-        for (var i = 0; i < pokemons.length; i++) {
-          final photos = await _pokemonRepository.fetchPhoto(http.Client(),
-              name: pokemons[i].name);
-          pokemons[i].url = photos.url;
-        }
+        // for (var i = 0; i < pokemons.length; i++) {
+        //   final photos = await _pokemonRepository.fetchPhoto(http.Client(),
+        //       name: pokemons[i].name);
+        //   pokemons[i].url = photos.url;
+        // }
 
         emit(PokemonloadedState(pokemons, ''));
       } catch (e) {
