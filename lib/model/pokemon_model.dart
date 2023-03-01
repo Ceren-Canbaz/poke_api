@@ -2,7 +2,7 @@ class Pokemon {
   final String name;
   String url;
 
-  Pokemon(this.name, this.url);
+  Pokemon({required this.name, required this.url});
 
   Pokemon.fromJson(Map<String, dynamic> json)
       : name = json['name'],
